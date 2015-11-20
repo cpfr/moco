@@ -1,0 +1,87 @@
+String _PRINT_COLOR_RESET := "\x1B[0m"
+
+String _PRINT_COLOR_RED     := "\x1B[31m"
+String _PRINT_COLOR_GREEN   := "\x1B[32m"
+String _PRINT_COLOR_YELLOW  := "\x1B[33m"
+String _PRINT_COLOR_BLUE    := "\x1B[34m"
+String _PRINT_COLOR_MAGENTA := "\x1B[35m"
+String _PRINT_COLOR_CYAN    := "\x1B[36m"
+String _PRINT_COLOR_WHITE   := "\x1B[37m"
+
+String _PRINT_COLOR_INV_RED     := "\x1B[41m"
+String _PRINT_COLOR_INV_GREEN   := "\x1B[42m"
+String _PRINT_COLOR_INV_YELLOW  := "\x1B[43m"
+String _PRINT_COLOR_INV_BLUE    := "\x1B[44m"
+String _PRINT_COLOR_INV_MAGENTA := "\x1B[45m"
+String _PRINT_COLOR_INV_CYAN    := "\x1B[46m"
+String _PRINT_COLOR_INV_WHITE   := "\x1B[47m"
+
+String _PRINT_COLOR_BOLD       := "\x1B[1m"
+String _PRINT_COLOR_ITALICS    := "\x1B[3m"
+String _PRINT_COLOR_UNDERLINE  := "\x1B[4m"
+String _PRINT_COLOR_BLINK      := "\x1B[5m"
+String _PRINT_COLOR_INVERTED   := "\x1B[7m"
+
+String _PRINT_COLOR_SUCCESS := "\x1B[92m"
+String _PRINT_COLOR_HEADER  := "\x1B[95m"
+String _PRINT_COLOR_INFO    := "\x1B[94m"
+String _PRINT_COLOR_WARNING := "\x1B[93m"
+String _PRINT_COLOR_ERROR   := "\x1B[91m"
+
+
+printColoured(String msg, String color):
+    case color of:
+        "red":
+            print(_PRINT_COLOR_RED)
+        "green":
+            print(_PRINT_COLOR_GREEN)
+        "yellow":
+            print(_PRINT_COLOR_YELLOW)
+        "blue":
+            print(_PRINT_COLOR_BLUE)
+        "magenta":
+            print(_PRINT_COLOR_MAGENTA)
+        "cyan":
+            print(_PRINT_COLOR_CYAN)
+        "white":
+            print(_PRINT_COLOR_WHITE)
+        "i-red":
+            print(_PRINT_COLOR_INV_RED)
+        "i-green":
+            print(_PRINT_COLOR_INV_GREEN)
+        "i-yellow":
+            print(_PRINT_COLOR_INV_YELLOW)
+        "i-blue":
+            print(_PRINT_COLOR_INV_BLUE)
+        "i-magenta":
+            print(_PRINT_COLOR_INV_MAGENTA)
+        "i-cyan":
+            print(_PRINT_COLOR_INV_CYAN)
+        "i-white":
+            print(_PRINT_COLOR_INV_WHITE)
+        "bold":
+            print(_PRINT_COLOR_BOLD)
+        "italics":
+            print(_PRINT_COLOR_ITALICS)
+        "underlined":
+            print(_PRINT_COLOR_UNDERLINE)
+        "blink":
+            print(_PRINT_COLOR_BLINK)
+        "inverted":
+            print(_PRINT_COLOR_INVERTED)
+        "success":
+            print(_PRINT_COLOR_SUCCESS)
+        "header":
+            print(_PRINT_COLOR_HEADER)
+        "info":
+            print(_PRINT_COLOR_INFO)
+        "warning":
+            print(_PRINT_COLOR_WARNING)
+        "error":
+            print(_PRINT_COLOR_ERROR)
+    print(msg)
+    print(_PRINT_COLOR_RESET)
+
+
+printClear():
+    print("\x1B[2J")

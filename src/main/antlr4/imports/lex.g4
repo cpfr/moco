@@ -231,7 +231,8 @@ StringLiteral
 
 fragment StringEscapeSequence
   : '\\' ('t' | 'b' | 'n' | 'r' | 'f' | '\'' | '\"' | '\\' 
-  | ('u' HexDigit HexDigit HexDigit HexDigit ))
+  | ('u' HexDigit HexDigit HexDigit HexDigit )
+  | ('x' HexDigit HexDigit ))
   ;
 
 fragment HexDigit

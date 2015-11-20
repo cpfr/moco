@@ -95,13 +95,13 @@ public class StringLiteral extends LiteralExpression<String> {
 
 		// replace unicode escape sequences by utf-8 codes
 		StringBuffer output = new StringBuffer();
-		Pattern regex = Pattern.compile("(\\\\u....)|\\P{ASCII}");
+		Pattern regex = Pattern.compile("(\\\\u....)|(\\\\x..)|\\P{ASCII}");
 		Matcher matcher = regex.matcher(value);
 		byte[] utf8;
 		while (matcher.find()) {
 			String replacement = "";
 
-			if (matcher.group().startsWith("\\u")) {
+			if ((matcher.group().startsWith("\\u")) || (matcher.group().startsWith("\\x"))) {
 				// convert hexadecimal unicode number to utf-8 encoded bytes
 				utf8 =
 				        Character.toString((char) Integer.parseInt(matcher.group().substring(2), 16)).getBytes(
