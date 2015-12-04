@@ -99,7 +99,7 @@ public class Main {
 		ParseTreePrinter parseTreePrinter = new ParseTreePrinter(parser);
 		parser.addParseListener(parseTreePrinter);
 		parser.compilationUnit();
-		System.out.print(parseTreePrinter.toString());
+		Logger.logOut(parseTreePrinter.toString());
 	}
 
 	private static Package buildPackage(String inputFile) {
@@ -170,8 +170,8 @@ public class Main {
 		}
 		Process process = processBuilder.start();
 
-		System.err.print(IOUtils.toString(process.getErrorStream()));
-		System.out.print(IOUtils.toString(process.getInputStream()));
+		Logger.logErr(IOUtils.toString(process.getErrorStream()));
+		Logger.logOut(IOUtils.toString(process.getInputStream()));
 	}
 
 	private static File buildExecutable(String outputFileName, String inputFileName, boolean compileOnly,
@@ -200,8 +200,8 @@ public class Main {
 		IOUtils.copy(llcProcess.getInputStream(), ccProcess.getOutputStream());
 		ccProcess.getOutputStream().close();
 
-		System.err.print(IOUtils.toString(llcProcess.getErrorStream()));
-		System.err.print(IOUtils.toString(ccProcess.getErrorStream()));
+		Logger.logErr(IOUtils.toString(llcProcess.getErrorStream()));
+		Logger.logErr(IOUtils.toString(ccProcess.getErrorStream()));
 		return outputFile;
 	}
 
@@ -215,8 +215,8 @@ public class Main {
 			processBuilder.redirectInput(ProcessBuilder.Redirect.INHERIT);
 		}
 		Process process = processBuilder.start();
-		System.err.print(IOUtils.toString(process.getErrorStream()));
-		System.out.print(IOUtils.toString(process.getInputStream()));
+		Logger.logErr(IOUtils.toString(process.getErrorStream()));
+		Logger.logOut(IOUtils.toString(process.getInputStream()));
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {

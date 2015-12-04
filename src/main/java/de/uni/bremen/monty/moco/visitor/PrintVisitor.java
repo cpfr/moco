@@ -47,6 +47,7 @@ import de.uni.bremen.monty.moco.ast.expression.literal.FloatLiteral;
 import de.uni.bremen.monty.moco.ast.expression.literal.IntegerLiteral;
 import de.uni.bremen.monty.moco.ast.expression.literal.StringLiteral;
 import de.uni.bremen.monty.moco.ast.statement.Assignment;
+import de.uni.bremen.monty.moco.util.Logger;
 
 /** This visitor traverses the AST and prints useful information to stdout. */
 public class PrintVisitor extends BaseVisitor {
@@ -60,7 +61,7 @@ public class PrintVisitor extends BaseVisitor {
 	 *            the string to print */
 	private void printIndent(String string) {
 		String indent = new String(new char[indentation]).replace('\0', ' ');
-		System.err.println(indent + string);
+		Logger.logErr(indent + string + "\n");
 	}
 
 	/** {@inheritDoc} */

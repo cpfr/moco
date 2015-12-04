@@ -47,6 +47,7 @@ import de.uni.bremen.monty.moco.ast.expression.*;
 import de.uni.bremen.monty.moco.ast.expression.literal.*;
 import de.uni.bremen.monty.moco.ast.statement.*;
 import de.uni.bremen.monty.moco.exception.MontyBaseException;
+import de.uni.bremen.monty.moco.util.Logger;
 
 /** This is the base-visitor to be subclassed by all visitors.
  *
@@ -100,13 +101,13 @@ public class BaseVisitor {
 	public void logError(RuntimeException exception) {
 		if (exception instanceof MontyBaseException) {
 			MontyBaseException exc = (MontyBaseException) exception;
-			System.err.println(String.format(
+			Logger.logErrLn(String.format(
 			        "%s caught error in %s: %s",
 			        getClass().getSimpleName(),
 			        getNodeInformation(exc.getNode()),
 			        exc.getMessage()));
 		} else {
-			exception.printStackTrace();
+			Logger.logStackTrace(exception);
 		}
 	}
 
